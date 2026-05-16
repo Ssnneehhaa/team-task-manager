@@ -1,33 +1,33 @@
 import { useState } from "react";
 import API from "../services/api";
 
-function Signup() {
+function Login() {
 
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignup = async (e) => {
+    const handleLogin = async (e) => {
 
         e.preventDefault();
 
         try {
 
-            await API.post("/auth/signup", {
-                name,
+            const res = await API.post("/auth/login", {
                 email,
                 password
             });
 
-            alert("Signup successful");
+            localStorage.setItem("token", res.data.token);
 
-            window.location.href = "/login";
+            alert("Login successful");
+
+            window.location.href = "/dashboard";
 
         } catch (error) {
 
             alert(
                 error.response?.data?.message ||
-                "Signup failed"
+                "Login failed"
             );
 
         }
@@ -41,24 +41,14 @@ function Signup() {
             <div className="bg-[#efe5da] p-10 rounded-[35px] shadow-xl w-full max-w-md">
 
                 <h1 className="text-4xl font-black text-[#3d2f27] mb-2">
-                    Create Account
+                    Welcome Back
                 </h1>
 
                 <p className="text-[#7a6557] mb-8">
-                    Join your team workspace beautifully.
+                    Login to continue managing your team.
                 </p>
 
-                <form onSubmit={handleSignup}>
-
-                    <input
-                        type="text"
-                        placeholder="Enter Name"
-                        value={name}
-                        onChange={(e) =>
-                            setName(e.target.value)
-                        }
-                        className="w-full p-4 rounded-2xl bg-white outline-none mb-4"
-                    />
+                <form onSubmit={handleLogin}>
 
                     <input
                         type="email"
@@ -82,9 +72,9 @@ function Signup() {
 
                     <button
                         type="submit"
-                        className="w-full bg-[#8c6a5d] text-white py-4 rounded-2xl font-bold hover:opacity-90 transition"
+                        className="w-full bg-[#3d2f27] text-white py-4 rounded-2xl font-bold hover:opacity-90 transition"
                     >
-                        Signup
+                        Login
                     </button>
 
                 </form>
@@ -97,4 +87,4 @@ function Signup() {
 
 }
 
-export default Signup;
+export default Login;
