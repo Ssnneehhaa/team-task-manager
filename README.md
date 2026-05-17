@@ -296,8 +296,7 @@ dist
 
 # Demo Video
 
-Demo video link will be added here.txt
-PASTE_DEMO_VIDEO_LINK_HERE
+https://www.loom.com/share/70bf3ade0f01457aa59e3a0f6a6c30c3
 
 ```
 
