@@ -40,15 +40,18 @@ function Login() {
 
             <div className="bg-[#efe5da] p-10 rounded-[35px] shadow-xl w-full max-w-md">
 
-                <h1 className="text-4xl font-black text-[#3d2f27] mb-2">
+                <h1 className="text-4xl font-black text-[#3d2f27] mb-2 text-center">
                     Welcome Back
                 </h1>
 
-                <p className="text-[#7a6557] mb-8">
+                <p className="text-[#7a6557] mb-8 text-center">
                     Login to continue managing your team.
                 </p>
 
-                <form onSubmit={handleLogin}>
+                <form
+                    onSubmit={handleLogin}
+                    className="space-y-4"
+                >
 
                     <input
                         type="email"
@@ -57,7 +60,7 @@ function Login() {
                         onChange={(e) =>
                             setEmail(e.target.value)
                         }
-                        className="w-full p-4 rounded-2xl bg-white outline-none mb-4"
+                        className="w-full p-4 rounded-2xl bg-white outline-none"
                     />
 
                     <input
@@ -67,7 +70,7 @@ function Login() {
                         onChange={(e) =>
                             setPassword(e.target.value)
                         }
-                        className="w-full p-4 rounded-2xl bg-white outline-none mb-6"
+                        className="w-full p-4 rounded-2xl bg-white outline-none"
                     />
 
                     <button
@@ -78,6 +81,19 @@ function Login() {
                     </button>
 
                 </form>
+
+                <p className="text-center mt-6 text-[#7a6557]">
+
+                    Don’t have an account?{" "}
+
+                    <a
+                        href="/signup"
+                        className="font-bold text-[#3d2f27] hover:underline"
+                    >
+                        Signup
+                    </a>
+
+                </p>
 
             </div>
 

@@ -40,15 +40,18 @@ function Signup() {
 
             <div className="bg-[#efe5da] p-10 rounded-[35px] shadow-xl w-full max-w-md">
 
-                <h1 className="text-4xl font-black text-[#3d2f27] mb-2">
+                <h1 className="text-4xl font-black text-[#3d2f27] mb-2 text-center">
                     Create Account
                 </h1>
 
-                <p className="text-[#7a6557] mb-8">
+                <p className="text-[#7a6557] mb-8 text-center">
                     Join your team workspace beautifully.
                 </p>
 
-                <form onSubmit={handleSignup}>
+                <form
+                    onSubmit={handleSignup}
+                    className="space-y-4"
+                >
 
                     <input
                         type="text"
@@ -57,7 +60,7 @@ function Signup() {
                         onChange={(e) =>
                             setName(e.target.value)
                         }
-                        className="w-full p-4 rounded-2xl bg-white outline-none mb-4"
+                        className="w-full p-4 rounded-2xl bg-white outline-none"
                     />
 
                     <input
@@ -67,7 +70,7 @@ function Signup() {
                         onChange={(e) =>
                             setEmail(e.target.value)
                         }
-                        className="w-full p-4 rounded-2xl bg-white outline-none mb-4"
+                        className="w-full p-4 rounded-2xl bg-white outline-none"
                     />
 
                     <input
@@ -77,7 +80,7 @@ function Signup() {
                         onChange={(e) =>
                             setPassword(e.target.value)
                         }
-                        className="w-full p-4 rounded-2xl bg-white outline-none mb-6"
+                        className="w-full p-4 rounded-2xl bg-white outline-none"
                     />
 
                     <button
@@ -88,6 +91,19 @@ function Signup() {
                     </button>
 
                 </form>
+
+                <p className="text-center mt-6 text-[#7a6557]">
+
+                    Already have an account?{" "}
+
+                    <a
+                        href="/login"
+                        className="font-bold text-[#3d2f27] hover:underline"
+                    >
+                        Login
+                    </a>
+
+                </p>
 
             </div>
 
