@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -6,29 +6,33 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
 
-  return (
+    return (
 
-    <div>
+        <Routes>
 
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="/login">Login</Link> |{" "}
-        <Link to="/signup">Signup</Link> |{" "}
-        <Link to="/dashboard">Dashboard</Link>
-      </nav>
+            <Route
+                path="/"
+                element={<Navigate to="/login" />}
+            />
 
-      <Routes>
+            <Route
+                path="/login"
+                element={<Login />}
+            />
 
-        <Route path="/login" element={<Login />} />
+            <Route
+                path="/signup"
+                element={<Signup />}
+            />
 
-        <Route path="/signup" element={<Signup />} />
+            <Route
+                path="/dashboard"
+                element={<Dashboard />}
+            />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
 
-      </Routes>
-
-    </div>
-
-  );
+    );
 
 }
 
